@@ -15,11 +15,44 @@ namespace WK2018.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Poules()
         {
-            ViewData["Message"] = "Your application description page.";
+            List<Team> teams = new List<Team>()
+            {
+                new Team
+                {
+                    Naam = "België",
+                    Poule_ID = 1,
+                }
+                ,
+                new Team
+                {
+                    Naam = "Frankrijk",
+                    Poule_ID = 1,
+                },
+                 new Team
+                {
+                    Naam = "Ierland",
+                    Poule_ID = 1,
+                },
+                  new Team
+                {
+                    Naam = "Spanje",
+                    Poule_ID = 1,
+                }
+            };
 
-            return View();
+            List<Poule> poules = new List<Poule>()
+            {
+                new Poule
+                {
+                    ID= 1,
+                    Naam= 'A',
+                    Teams = teams
+                }
+            };
+
+            return View(poules);
         }
 
         public IActionResult Contact()
