@@ -22,3 +22,4 @@ namespace WK2018.Models
         public ICollection<Speler> Spelers { get; set; }
         public ICollection<Wedstrijd> Wedstrijden { get; set; }
     }
+}
