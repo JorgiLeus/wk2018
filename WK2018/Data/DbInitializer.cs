@@ -27,14 +27,14 @@ namespace WK2018.Data
 
             new List<Poule>
             {
-                new Poule { ID=1, Naam='A', Toernooi_ID=1 },
-                new Poule { ID=2, Naam='B', Toernooi_ID=1 },
-                new Poule { ID=3, Naam='C', Toernooi_ID=1 },
-                new Poule { ID=4, Naam='D', Toernooi_ID=1 },
-                new Poule { ID=5, Naam='E', Toernooi_ID=1 },
-                new Poule { ID=6, Naam='F', Toernooi_ID=1 },
-                new Poule { ID=7, Naam='G', Toernooi_ID=1 },
-                new Poule { ID=8, Naam='H', Toernooi_ID=1 },
+                new Poule { ID=1, Naam="A", Toernooi_ID=1 },
+                new Poule { ID=2, Naam="B", Toernooi_ID=1 },
+                new Poule { ID=3, Naam="C", Toernooi_ID=1 },
+                new Poule { ID=4, Naam="D", Toernooi_ID=1 },
+                new Poule { ID=5, Naam="E", Toernooi_ID=1 },
+                new Poule { ID=6, Naam="F", Toernooi_ID=1 },
+                new Poule { ID=7, Naam="G", Toernooi_ID=1 },
+                new Poule { ID=8, Naam="H", Toernooi_ID=1 },
             }.ForEach(p => context.Poules.Add(p));
 
             new List<Knockout>
@@ -272,7 +272,7 @@ namespace WK2018.Data
             new List<Wedstrijd>
             {
                 new Wedstrijd { ID=1, Datum= DateTime.Parse("14/06/2018 17:00:00"), Team_Thuis_ID=1, Team_Uit_ID=2},
-                new Wedstrijd { ID=1, Datum= DateTime.Parse("15/06/2018 14:00:00"), Team_Thuis_ID=3, Team_Uit_ID=4},
+                new Wedstrijd { ID=2, Datum= DateTime.Parse("15/06/2018 14:00:00"), Team_Thuis_ID=3, Team_Uit_ID=4},
             }.ForEach(w => context.Wedstrijden.Add(w));
         }
     }

@@ -15,48 +15,6 @@ namespace WK2018.Controllers
             return View();
         }
 
-        public IActionResult Poules()
-        {
-            List<Team> teams = new List<Team>()
-            {
-                new Team
-                {
-                    Naam = "België",
-                    Poule_ID = 1,
-                }
-                ,
-                new Team
-                {
-                    Naam = "Frankrijk",
-                    Poule_ID = 1,
-                },
-                 new Team
-                {
-                    Naam = "Ierland",
-                    Poule_ID = 1,
-                },
-                  new Team
-                {
-                    Naam = "Spanje",
-                    Poule_ID = 1,
-                }
-            };
-
-            List<Poule> poules = new List<Poule>()
-            {
-                new Poule
-                {
-                    ID= 1,
-                    Naam= 'A',
-                    Teams = teams
-                }
-            };
-
-            //TODO sort by score then by name
-
-            return View(poules);
-        }
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
