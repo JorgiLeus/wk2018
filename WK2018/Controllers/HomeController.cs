@@ -52,14 +52,9 @@ namespace WK2018.Controllers
                 }
             };
 
+            //TODO sort by score then by name
+
             return View(poules);
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
         }
 
         public IActionResult Error()

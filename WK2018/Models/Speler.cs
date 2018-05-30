@@ -8,6 +8,7 @@ namespace WK2018.Models
 {
     public class Speler
     {
+        [Required]
         public int ID { get; set; }
         [Required]
         public string Naam { get; set; }
@@ -24,10 +25,8 @@ namespace WK2018.Models
         [Required]
         public int Leeftijd { get; set; }
         [Required]
-
         public int Team_ID { get; set; }
         [Required]
         public Team Team { get; set; }
-        [Required]
     }
 }

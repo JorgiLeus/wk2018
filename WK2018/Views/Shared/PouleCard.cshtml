@@ -1,0 +1,14 @@
+﻿@model Poule
+@{
+    ViewData["Title"] = "poule";
+}
+<a asp-controller="Poule" asp-action="Detail" asp-route-id="@Model.ID" class="flex-container shadow shadow-hover reset-link">
+    <div class="pouleHeader flex-container"><h2>Poule @Model.Naam</h2></div>
+    <div class="grid-container grid-2-colums padding">
+        @foreach (var team in Model.Teams)
+        {
+            <div>@team.Naam</div>
+            <div>@team.Punten</div>
+        }
+    </div>
+</a>
