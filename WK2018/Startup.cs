@@ -43,7 +43,7 @@ namespace WK2018
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, WKContext context)
         {
             if (env.IsDevelopment())
             {
@@ -66,6 +66,8 @@ namespace WK2018
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Initialize(context);
         }
     }
 }
