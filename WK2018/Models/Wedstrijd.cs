@@ -16,9 +16,9 @@ namespace WK2018.Models
         public int Score_Thuis { get; set; }
         public int Score_Uit { get; set; }
         public Score Score { get; set; }
-        public int Team_Thuis_ID { get; set; }
+        //public int Team_Thuis_ID { get; set; }
         public Team Team_Thuis { get; set; }
-        public int Team_Uit_ID { get; set; }
+       // public int Team_Uit_ID { get; set; }
         public Team Team_Uit { get; set; }
     }
 }

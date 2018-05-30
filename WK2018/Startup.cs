@@ -28,8 +28,7 @@ namespace WK2018
         {
             services.AddDbContext<WKContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -77,8 +76,8 @@ namespace WK2018
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            DbContext.Initialize(context);
+            
+            DbInitializer.Initialize(context);
         }
     }
 }

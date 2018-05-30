@@ -8,10 +8,11 @@ namespace WK2018.Models
 {
     public class Score
     {
+        [Key]
         public int Thuis { get; set; }
-        [Required]
+        [Key]
         public int Uit { get; set; }
-        [Required]
+        
 
         public ICollection<Wedstrijd> Wedstrijden { get; set; }
     }
