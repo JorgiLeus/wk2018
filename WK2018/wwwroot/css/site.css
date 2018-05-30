@@ -1,4 +1,9 @@
-﻿body {
+﻿:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #f1c40f;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
