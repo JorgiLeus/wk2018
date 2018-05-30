@@ -26,6 +26,10 @@ namespace WK2018
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WKContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -36,11 +40,21 @@ namespace WK2018
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                //Password settings
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            });
+
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, WKContext context)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +77,8 @@ namespace WK2018
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbContext.Initialize(context);
         }
     }
 }
