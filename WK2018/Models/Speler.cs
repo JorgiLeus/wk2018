@@ -23,7 +23,7 @@ namespace WK2018.Models
         [Required]
         public string Positie { get; set; }
         [Required]
-        public int Leeftijd { get; set; }
+        public DateTime GeboorteDatum { get; set; }
 
         [Required]
         public int Team_ID { get; set; }
