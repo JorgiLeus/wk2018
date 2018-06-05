@@ -10,7 +10,7 @@ namespace WK2018.Data
     {
         public static void Initialize(WKContext context)
         {
-           // context.Database.EnsureCreated();
+           context.Database.EnsureCreated();
 
             //Look for any tournaments
             if (context.Toernooien.Any())
@@ -269,11 +269,11 @@ namespace WK2018.Data
                 new Score { Thuis=10, Uit=10 },
             }.ForEach(s => context.Scores.Add(s));
 
-            //new List<Wedstrijd>
-            //{
-            //    new Wedstrijd { ID=1, Datum= DateTime.Parse("14/06/2018 17:00:00"), Team_Thuis_ID=1, Team_Uit_ID=2},
-            //    new Wedstrijd { ID=1, Datum= DateTime.Parse("15/06/2018 14:00:00"), Team_Thuis_ID=3, Team_Uit_ID=4},
-            //}.ForEach(w => context.Wedstrijden.Add(w));
+            new List<Wedstrijd>
+            {
+                new Wedstrijd { ID=1, Datum= DateTime.Parse("14/06/2018 17:00:00"), Team_Thuis_ID=1, Team_Uit_ID=2},
+                new Wedstrijd { ID=2, Datum= DateTime.Parse("15/06/2018 14:00:00"), Team_Thuis_ID=3, Team_Uit_ID=4},
+            }.ForEach(w => context.Wedstrijden.Add(w));
         }
     }
 }

@@ -9,6 +9,7 @@ namespace WK2018.Models
 {
     public class Team
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
         [Required]
         public string Naam { get; set; }
