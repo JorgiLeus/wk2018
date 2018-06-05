@@ -27,6 +27,7 @@ namespace WK2018.Data
             modelBuilder.Entity<Team>().ToTable("Teams");
             modelBuilder.Entity<Speler>().ToTable("Spelers");
             modelBuilder.Entity<Wedstrijd>().ToTable("Wedstrijden");
+            modelBuilder.Entity<Score>().HasKey(s => new { s.Thuis, s.Uit });
             modelBuilder.Entity<Score>().ToTable("Scores");
         }
     }
