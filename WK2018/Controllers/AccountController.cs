@@ -432,9 +432,10 @@ namespace WK2018.Controllers
 
 
         [HttpGet]
-        public IActionResult AccessDenied()
+        [AllowAnonymous]
+        public IActionResult AccessDenied(string returnUrl = null)
         {
-            return View();
+            return RedirectToAction("Login", new { returnUrl = returnUrl });
         }
 
         #region Helpers
