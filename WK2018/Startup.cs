@@ -67,7 +67,7 @@ namespace WK2018
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            DbInitializer.Initialize(context);
+           // DbInitializer.Initialize(context);
         }
     }
 }

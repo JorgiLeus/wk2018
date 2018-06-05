@@ -7,6 +7,7 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
 body, html {
     height: 100%;
     color: rgba(0,0,0,0.8);
@@ -78,9 +79,9 @@ nav {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
-.shadow:active {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
+    .shadow-hover:active {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
 
 .pouleHeader {
     background: #e74c3c;
@@ -97,12 +98,16 @@ nav {
     padding-top: 15px;
     display: grid;
     grid-gap: 15px;
-    justify-items: center;
+}
+
+.grid-9-colums {
+    grid-template-columns:  4fr repeat(8,1fr);
 }
 
 .grid-3-colums {
     grid-template-columns: 1fr 1fr 1fr;
 }
+
 .grid-4-colums {
     grid-template-columns: repeat(4,1fr);
 }
@@ -115,7 +120,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .full-height {

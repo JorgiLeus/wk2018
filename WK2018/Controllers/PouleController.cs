@@ -53,8 +53,38 @@ namespace WK2018.Controllers
 
         public IActionResult Detail(int id)
         {
+            List<Team> teams = new List<Team>()
+            {
+                new Team
+                {
+                    Naam = "België",
+                    Poule_ID = 1,
+                }
+                ,
+                new Team
+                {
+                    Naam = "Frankrijk",
+                    Poule_ID = 1,
+                },
+                 new Team
+                {
+                    Naam = "Ierland",
+                    Poule_ID = 1,
+                },
+                  new Team
+                {
+                    Naam = "Spanje",
+                    Poule_ID = 1,
+                }
+            };
 
-            return View();
+            Poule poule = new Poule
+            {
+                ID = 1,
+                Naam = "A",
+                Teams = teams
+            };
+            return View(poule);
         }
     }
 }

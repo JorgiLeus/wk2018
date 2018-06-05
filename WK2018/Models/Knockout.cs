@@ -18,5 +18,6 @@ namespace WK2018.Models
         public Toernooi Toernooi { get; set; }
         [Required]
         public ICollection<Team> Teams { get; set; }
+        public ICollection<Wedstrijd> Wedstrijden { get; set; }
     }
 }

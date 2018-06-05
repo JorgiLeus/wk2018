@@ -13,7 +13,6 @@ namespace WK2018.Models
         public int ID { get; set; }
         [Required]
         public string Naam { get; set; }
-        public string Logo { get; set; }
 
         public ICollection<Poule> Poules { get; set; }
         public ICollection<Knockout> KnockoutStages { get; set; }

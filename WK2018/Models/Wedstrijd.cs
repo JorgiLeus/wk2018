@@ -13,6 +13,13 @@ namespace WK2018.Models
         public DateTime Datum { get; set; }
         [Required]
 
+        public Boolean Gespeeld { get; set; }
+
+        public int? Poule_ID { get; set; }
+        public Poule Poule { get; set; }
+        public int? Knockout_ID { get; set; }
+        public Knockout Knockout { get; set; }
+
         public int Score_Thuis { get; set; }
         public int Score_Uit { get; set; }
         public Score Score { get; set; }

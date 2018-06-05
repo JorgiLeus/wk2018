@@ -37,6 +37,8 @@ namespace WK2018.Data
                 new Poule { ID=8, Naam="H", Toernooi_ID=1 },
             }.ForEach(p => context.Poules.Add(p));
 
+            context.SaveChanges();
+
             new List<Knockout>
             {
                 new Knockout { ID=1, Type="1/8e Finale", Toernooi_ID=1},
@@ -45,6 +47,8 @@ namespace WK2018.Data
                 new Knockout { ID=4, Type="Troostfinale", Toernooi_ID=1},
                 new Knockout { ID=5, Type="Finale", Toernooi_ID=1},
             }.ForEach(k => context.KnockoutStages.Add(k));
+
+            context.SaveChanges();
 
             new List<Team>
             {
@@ -81,6 +85,8 @@ namespace WK2018.Data
                 new Team { ID=31, Naam="Colombia", Punten=0, Poule_ID=8 },
                 new Team { ID=32, Naam="Japan", Punten=0, Poule_ID=8 },
             }.ForEach(t => context.Teams.Add(t));
+
+            context.SaveChanges();
 
             new List<Speler>{
                 new Speler{ ID=1, Naam="Igor Akinfejev", DP=0, GK=0, RK=0, WG=0, GeboorteDatum=DateTime.Parse("1986-04-08"), Positie="DM", Team_ID=1},
@@ -143,6 +149,8 @@ namespace WK2018.Data
                 new Speler{ ID=58, Naam="James Rodríguez", DP=0, GK=0, RK=0, WG=0, GeboorteDatum=DateTime.Parse("1991-07-12"), Positie="RB", Team_ID=31},
                 new Speler{ ID=59, Naam="Makoto Hasebe", DP=0, GK=0, RK=0, WG=0, GeboorteDatum=DateTime.Parse("1984-01-18"), Positie="CVM", Team_ID=32},
             }.ForEach(s => context.Spelers.Add(s));
+
+            context.SaveChanges();
 
             new List<Score>
             {
@@ -269,11 +277,15 @@ namespace WK2018.Data
                 new Score { Thuis=10, Uit=10 },
             }.ForEach(s => context.Scores.Add(s));
 
+            context.SaveChanges();
+
             new List<Wedstrijd>
             {
                 new Wedstrijd { ID=1, Datum= DateTime.Parse("14/06/2018 17:00:00"), Team_Thuis_ID=1, Team_Uit_ID=2},
                 new Wedstrijd { ID=2, Datum= DateTime.Parse("15/06/2018 14:00:00"), Team_Thuis_ID=3, Team_Uit_ID=4},
             }.ForEach(w => context.Wedstrijden.Add(w));
+
+            context.SaveChanges();
         }
     }
 }
