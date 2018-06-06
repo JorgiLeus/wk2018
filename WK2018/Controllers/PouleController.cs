@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WK2018.Models;
+using WK2018.Models.PouleViewModels;
 
 namespace WK2018.Controllers
 {
@@ -84,7 +85,12 @@ namespace WK2018.Controllers
                 Naam = "A",
                 Teams = teams
             };
-            return View(poule);
+
+            DetailViewModel vm = new DetailViewModel();
+
+            vm.Poule = poule;
+
+            return View(vm);
         }
     }
 }

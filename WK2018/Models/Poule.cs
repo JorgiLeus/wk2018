@@ -13,9 +13,8 @@ namespace WK2018.Models
         public string Naam { get; set; }
         [Required]
         public int Toernooi_ID { get; set; }
-       
+
         public Toernooi Toernooi { get; set; }
         public ICollection<Team> Teams { get; set; }
-        public ICollection<Wedstrijd> Wedstijden { get; set; }
     }
 }

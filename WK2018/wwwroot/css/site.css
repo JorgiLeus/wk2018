@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root {
     --primary-color: #e74c3c;
     --secondary-color: #f1c40f;
 }
@@ -11,6 +13,7 @@ body {
 body, html {
     height: 100%;
     color: rgba(0,0,0,0.8);
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -31,7 +34,7 @@ nav {
         transition: background 0.2s ease-in-out;
     }
 
-        nav a:hover, nav a:active {
+        nav a:hover, nav a:active, nav a:focus {
             background: #c0392b !important;
         }
 
@@ -110,6 +113,10 @@ nav {
 
 .grid-4-colums {
     grid-template-columns: repeat(4,1fr);
+}
+
+.grid-4-colums-score {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .grid-2-colums {

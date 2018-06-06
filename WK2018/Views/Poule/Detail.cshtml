@@ -1,4 +1,4 @@
-﻿@model Poule
+﻿@model WK2018.Models.PouleViewModels.DetailViewModel
 @{
     ViewData["Title"] = "Detail";
 }
@@ -6,10 +6,10 @@
 <div class="flex-container padding">
 
     <div class="shadow flex-container">
-        <div class="pouleHeader flex-container"><h2>Poule @Model.Naam</h2></div>
+        <div class="pouleHeader flex-container"><h2>Poule @Model.Poule.Naam</h2></div>
         <div class="grid-container grid-9-colums padding">
             <p><b>Naam</b></p> <p class="text-center"><b>GW</b></p> <p class="text-center"> <b>W</b></p> <p class="text-center"><b>G</b></p> <p class="text-center"><b>V</b></p> <p class="text-center"><b>DV</b></p> <p class="text-center"><b>DT</b></p> <p class="text-center"><b>DS</b></p> <p class="text-center"><b>Pnt</b></p>
-            @foreach (var team in Model.Teams)
+            @foreach (var team in Model.Poule.Teams)
             {
                 <p> @team.Naam </p><p class="text-center"> @team.GespeeldeWedstrijden </p> <p class="text-center">@team.AantalGewonnenWedstrijden</p> <p class="text-center">@team.AantalGelijkeWedstrijden</p> 
                 <p class="text-center">@team.AantalVerlorenWedstrijden</p> <p class="text-center">@team.DoelpuntenVoor</p> 
@@ -18,7 +18,23 @@
         </div>
     </div>
 
-    <div class="flex-container padding">Wedstrijden</div>
+    <div class="flex-container padding">
+    <h2 class="text-center">Wedstrijden</h2>
+        <div class="grid-container grid-4-colums-score">
+            @{DateTime vandaag = DateTime.Now ;}
+            <p>  @vandaag.ToString("dd MMMM yyyy") </p>
+            <p> Belgie </p>
+            <p> 0 - 0 </p>
+            <p> Brazilië </p>
+            @foreach (var wedstrijd in Model?.Wedstrijden ?? new List<Wedstrijd>())
+            {
+                <p> @wedstrijd.Datum </p>
+                <p> @wedstrijd.Team_Thuis.Naam </p>
+                <p> @wedstrijd.Score.Thuis - @wedstrijd.Score.Uit </p>
+                <p> @wedstrijd.Team_Uit.Naam </p>
+            }
+        </div>
+    </div>
     
 </div>
 
