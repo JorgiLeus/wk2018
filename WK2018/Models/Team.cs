@@ -33,5 +33,7 @@ namespace WK2018.Models
         public ICollection<Wedstrijd> ThuisWedstrijden { get; set; }
         [InverseProperty("TeamUit")]
         public ICollection<Wedstrijd> UitWedstrijden { get; set; }
+        public ICollection<Wedstrijd> Wedstrijden => ThuisWedstrijden?.Concat(UitWedstrijden).ToList();
+           
     }
 }

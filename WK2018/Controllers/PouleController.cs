@@ -17,23 +17,23 @@ namespace WK2018.Controllers
                 new Team
                 {
                     Naam = "België",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 }
                 ,
                 new Team
                 {
                     Naam = "Frankrijk",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 },
                  new Team
                 {
                     Naam = "Ierland",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 },
                   new Team
                 {
                     Naam = "Spanje",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 }
             };
 
@@ -42,7 +42,7 @@ namespace WK2018.Controllers
                 new Poule
                 {
                     ID= 1,
-                    Naam= "A",
+                    Naam= 'A',
                     Teams = teams
                 }
             };
@@ -59,30 +59,30 @@ namespace WK2018.Controllers
                 new Team
                 {
                     Naam = "België",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 }
                 ,
                 new Team
                 {
                     Naam = "Frankrijk",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 },
                  new Team
                 {
                     Naam = "Ierland",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 },
                   new Team
                 {
                     Naam = "Spanje",
-                    Poule_ID = 1,
+                    PouleID = 1,
                 }
             };
 
             Poule poule = new Poule
             {
                 ID = 1,
-                Naam = "A",
+                Naam = 'A',
                 Teams = teams
             };
 
