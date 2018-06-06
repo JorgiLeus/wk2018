@@ -21,8 +21,10 @@ namespace WK2018.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Wedstrijd> wedstrijden = _context.Wedstrijden.ToList();
-            return View(wedstrijden);
+            //List<Wedstrijd> wedstrijden = _context.Wedstrijden.ToList();
+            //return View(wedstrijden);
+            return View();
+         
         }
     }
 }
