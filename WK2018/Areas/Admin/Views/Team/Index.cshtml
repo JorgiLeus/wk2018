@@ -9,7 +9,7 @@
 <ul>
     @foreach (Team team in Model)
     {
-        <li>@team.Naam</li>
+        <li><a asp-area="Admin" asp-controller="Team" asp-action="WijzigTeam" asp-route-id="@team.ID">@team.Naam</a></li>
     }
 </ul>
 

@@ -24,5 +24,11 @@ namespace WK2018.Areas.Admin.Controllers
             List<Team> teams = _context.Teams.ToList(); 
             return View(teams);
         }
+
+        public IActionResult WijzigTeam(int id)
+        {
+            Team team = _context.Teams.Where(x => x.ID == id).SingleOrDefault();
+            return View(team);
+        }
     }
 }
