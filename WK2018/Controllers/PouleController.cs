@@ -5,86 +5,31 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WK2018.Models;
 using WK2018.Models.PouleViewModels;
+using WK2018.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WK2018.Controllers
 {
     public class PouleController : Controller
     {
+        private readonly WKContext _context;
+
+        public PouleController(WKContext context)
+        {
+            _context = context;
+        }
+
+
         public IActionResult Index()
         {
-            List<Team> teams = new List<Team>()
-            {
-                new Team
-                {
-                    Naam = "België",
-                    PouleID = 1,
-                }
-                ,
-                new Team
-                {
-                    Naam = "Frankrijk",
-                    PouleID = 1,
-                },
-                 new Team
-                {
-                    Naam = "Ierland",
-                    PouleID = 1,
-                },
-                  new Team
-                {
-                    Naam = "Spanje",
-                    PouleID = 1,
-                }
-            };
-
-            List<Poule> poules = new List<Poule>()
-            {
-                new Poule
-                {
-                    ID= 1,
-                    Naam= 'A',
-                    Teams = teams
-                }
-            };
-
-            //TODO sort by score then by name
+            List<Poule> poules = _context.Poules.Include(p => p.Teams).OrderBy(p => p.Naam).ToList();
 
             return View(poules);
         }
 
         public IActionResult Detail(int id)
         {
-            List<Team> teams = new List<Team>()
-            {
-                new Team
-                {
-                    Naam = "België",
-                    PouleID = 1,
-                }
-                ,
-                new Team
-                {
-                    Naam = "Frankrijk",
-                    PouleID = 1,
-                },
-                 new Team
-                {
-                    Naam = "Ierland",
-                    PouleID = 1,
-                },
-                  new Team
-                {
-                    Naam = "Spanje",
-                    PouleID = 1,
-                }
-            };
-
-            Poule poule = new Poule
-            {
-                ID = 1,
-                Naam = 'A',
-                Teams = teams
-            };
+            Poule poule = _context.Poules.Include(p => p.Teams).Where(p => p.ID == id).SingleOrDefault();
 
             DetailViewModel vm = new DetailViewModel();
 

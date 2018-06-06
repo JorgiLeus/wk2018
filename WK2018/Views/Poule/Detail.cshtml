@@ -26,13 +26,15 @@
             <p> Belgie </p>
             <p> 0 - 0 </p>
             <p> Brazilië </p>
-            @foreach (var wedstrijd in Model?.Wedstrijden ?? new List<Wedstrijd>())
-            {
-                <p> @wedstrijd.Datum </p>
-                <p> @wedstrijd.Team_Thuis.Naam </p>
-                <p> @wedstrijd.Score.Thuis - @wedstrijd.Score.Uit </p>
-                <p> @wedstrijd.Team_Uit.Naam </p>
-            }
+           
+                @foreach (var wedstrijd in Model.Wedstrijden)
+                {
+                    <p> @wedstrijd.Datum </p>
+                    <p> @wedstrijd.TeamThuis.Naam </p>
+                    <p> @wedstrijd.ScoreThuis - @wedstrijd.ScoreUit </p>
+                    <p> @wedstrijd.TeamUit.Naam </p>
+                }
+            
         </div>
     </div>
     

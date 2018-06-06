@@ -13,7 +13,7 @@ namespace WK2018.Models.PouleViewModels
         {
             get
             {
-                List<ICollection<Wedstrijd>> collectionWedstrijden = Poule.Teams.Select(t => t.Wedstrijden).ToList();
+                List<ICollection<Wedstrijd>> collectionWedstrijden = Poule.Teams.Select(t => t.ThuisWedstrijden).ToList();
                 List<Wedstrijd> wedstrijden = new List<Wedstrijd>();
 
                 foreach (var collection in collectionWedstrijden)

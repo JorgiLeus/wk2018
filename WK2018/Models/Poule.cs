@@ -16,8 +16,7 @@ namespace WK2018.Models
 
         public int ToernooiID { get; set; }
         public Toernooi Toernooi { get; set; }
-
-
+      
         public ICollection<Team> Teams { get; set; }
     }
 }
