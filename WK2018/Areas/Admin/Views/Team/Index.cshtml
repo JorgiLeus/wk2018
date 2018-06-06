@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Team>
+
+@{
+    ViewData["Title"] = "Teams beheren";
+}
+
+<h2>Beheren van teams</h2>
+
+<ul>
+    @foreach (Team team in Model)
+    {
+        <li>@team.Naam</li>
+    }
+</ul>
+
+

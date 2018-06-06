@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,26 +9,19 @@ namespace WK2018.Models
 {
     public class Speler
     {
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
         [Required]
         public string Naam { get; set; }
-        [Required]
         public int WG { get; set; }
-        [Required]
         public int GK { get; set; }
-        [Required]
         public int RK { get; set; }
-        [Required]
         public int DP { get; set; }
-        [Required]
         public string Positie { get; set; }
-        [Required]
         public DateTime GeboorteDatum { get; set; }
 
         [Required]
-        public int Team_ID { get; set; }
-        [Required]
+        public int TeamID { get; set; }
         public Team Team { get; set; }
        
     }
