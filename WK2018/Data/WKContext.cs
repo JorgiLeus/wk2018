@@ -17,7 +17,6 @@ namespace WK2018.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<Speler> Spelers { get; set; }
         public DbSet<Wedstrijd> Wedstrijden { get; set; }
-        public DbSet<Score> Scores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,8 +26,6 @@ namespace WK2018.Data
             modelBuilder.Entity<Team>().ToTable("Teams");
             modelBuilder.Entity<Speler>().ToTable("Spelers");
             modelBuilder.Entity<Wedstrijd>().ToTable("Wedstrijden");
-            modelBuilder.Entity<Score>().HasKey(s => new { s.Thuis, s.Uit });
-            modelBuilder.Entity<Score>().ToTable("Scores");
         }
     }
 }

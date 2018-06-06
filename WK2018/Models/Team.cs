@@ -15,18 +15,23 @@ namespace WK2018.Models
         public string Naam { get; set; }
         [Required]
         public int Punten { get; set; }
-        [Required]
 
-        public int Poule_ID { get; set; }
+        public int PouleID { get; set; }
         public Poule Poule { get; set; }
-        public int? Knockout_ID { get; set; }
-        public Knockout KnockoutStage { get; set; }
-        public ICollection<Speler> Spelers { get; set; }
-        
 
-        [InverseProperty("Team_Thuis")]
+
+
+        public int? KnockoutID { get; set; }
+        public Knockout Knockout { get; set; }
+
+
+
+        public ICollection<Speler> Spelers { get; set; }
+
+        
+        [InverseProperty("TeamThuis")]
         public ICollection<Wedstrijd> ThuisWedstrijden { get; set; }
-        [InverseProperty("Team_Uit")]
+        [InverseProperty("TeamUit")]
         public ICollection<Wedstrijd> UitWedstrijden { get; set; }
     }
 }

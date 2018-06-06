@@ -3,6 +3,9 @@
     ViewData["Title"] = "Admin Maintain Page";
 }
 
-<h2>@ViewData["Title"]</h2>
 <h4>Admin page</h4>
 
+<ul>
+    <li><a asp-area="Admin" asp-controller="Team" asp-action="Index">Teams beheren</a></li>
+    <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Wedstrijden beheren</a></li>
+</ul>
