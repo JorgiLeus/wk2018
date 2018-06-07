@@ -1,0 +1,22 @@
+﻿@model List<Knockout>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="grid-container grid-2-colums">
+
+
+    @foreach (var knockout in Model)
+    {
+        <div class="shadow grid-item-start">
+            <div class="pouleHeader flex-container"><h2>@knockout.Type</h2></div>
+            <div class="grid-container grid-4-colums padding">
+                @foreach (var wedstrijd in knockout.Wedstrijden)
+                {
+                    @await Html.PartialAsync("WedstrijdDetail", wedstrijd);
+                }
+            </div>
+        </div>
+                    }
+
+</div>

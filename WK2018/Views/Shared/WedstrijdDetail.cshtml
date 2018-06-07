@@ -1,0 +1,47 @@
+﻿@model Wedstrijd
+@{
+    ViewData["Title"] = "WedstrijdDetail";
+}
+
+<p>
+    @if (Model.ScoreThuis != null)
+    {
+        <text>@Model.Datum.ToString("dd MMMM yyyy HH:mm")</text>
+    }
+    else
+    {
+        <text>@Model.Datum.ToString("dd MMMM yyyy")</text>
+    }
+</p>
+<p class="text-right">
+    @if (Model.TeamThuis != null)
+    {
+
+        <text>@Model.TeamThuis.Naam </text>
+
+    }
+    else
+    {
+        <text>T.B.D</text>
+    }
+</p>
+<p class="text-center">
+    @if (Model.ScoreThuis != null)
+    {
+        <text>@Model.ScoreThuis - @Model.ScoreUit</text>
+    }
+    else
+    {
+        <text>@Model.Datum.ToString("HH:mm")</text>
+    }
+</p>
+<p>
+    @if (Model.TeamUit != null)
+    {
+        <text>@Model.TeamUit.Naam </text>
+    }
+    else
+    {
+        <text>T.B.D</text>
+    }
+</p>

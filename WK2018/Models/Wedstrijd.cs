@@ -17,6 +17,9 @@ namespace WK2018.Models
         public int? ScoreThuis { get; set; }
         public int? ScoreUit { get; set; }
 
+        public int? KnockoutID { get; set; }
+        public Knockout Knockout { get; set; }
+
         [ForeignKey("TeamThuis")]
         public int? TeamThuisID { get; set; }
         
