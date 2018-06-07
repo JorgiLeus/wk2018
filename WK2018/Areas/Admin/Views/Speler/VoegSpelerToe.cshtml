@@ -1,0 +1,32 @@
+﻿@model Speler
+
+@{
+    ViewData["Title"] = "VoegSpelerToe";
+}
+
+<h2>Toevoegen speler bij @Model.Team.Naam</h2>
+
+<form asp-action="VoegSpelerToe">
+    <input asp-for="TeamID" type="hidden" />
+    <input asp-for="Team" type="hidden"/>
+    <div class="form-group">
+        <label asp-for="Naam">@Html.DisplayNameFor(n => n.Naam)</label>
+        <input type="text" class="form-control" asp-for="Naam" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Positie">@Html.DisplayNameFor(n => n.Positie)</label>
+        <input type="text" class="form-control" asp-for="Positie" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GeboorteDatum">@Html.DisplayNameFor(n => n.GeboorteDatum)</label>
+        <input type="date" class="form-control" asp-for="GeboorteDatum" />
+    </div>
+    <br/>
+    <input asp-for="WG" value="0" type="hidden" />
+    <input asp-for="GK" value="0" type="hidden" />
+    <input asp-for="RK" value="0" type="hidden" />
+    <input asp-for="DP" value="0" type="hidden" />
+    <input type="submit" value="Toevoegen"/>
+</form>
+
+<a asp-area="Admin" asp-controller="Speler" asp-action="LijstTeams" asp-route-id="@Model.TeamID">Back</a>

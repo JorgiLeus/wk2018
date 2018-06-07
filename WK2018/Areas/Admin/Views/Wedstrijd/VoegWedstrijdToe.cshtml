@@ -1,0 +1,44 @@
+﻿@model Wedstrijd
+
+@{
+    ViewData["Title"] = "VoegWedstrijdToe";
+
+    var thuis = (IEnumerable<SelectListItem>)ViewData["LijstTeamThuis"];
+    var uit = (IEnumerable<SelectListItem>)ViewData["LijstTeamUit"];
+}
+
+<h2>Nieuwe wedstrijd</h2>
+
+<form asp-action="VoegWedstrijdToe">
+    <div class="form-group">
+        <label asp-for="Datum">@Html.DisplayNameFor(x => x.Datum)</label>
+        <input asp-for="Datum" class="form-control" id="datetimepicker" type="text" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="TeamThuis.Naam">Thuisteam</label>
+
+        <select asp-for="TeamThuisID" asp-items="@thuis"></select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="ScoreThuis">Score thuis</label>
+        <input asp-for="ScoreThuis" class="form-control" type="number" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="TeamUit.Naam">Uitteam</label>
+
+        <select asp-for="TeamUitID" asp-items="@uit"></select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="ScoreUit">Score uit</label>
+        <input asp-for="ScoreUit" class="form-control" type="number" />
+    </div>
+    <input type="submit" value="VoegToe" />
+</form>
+
+<a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Back</a>
+
+<script>jQuery('#datetimepicker').datetimepicker();</script>

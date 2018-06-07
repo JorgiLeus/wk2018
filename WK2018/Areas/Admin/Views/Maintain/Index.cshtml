@@ -6,6 +6,10 @@
 <h4>Admin page</h4>
 
 <ul>
-    <li><a asp-area="Admin" asp-controller="Team" asp-action="Index">Teams beheren</a></li>
+    <li><a asp-area="Admin" asp-controller="Speler" asp-action="Index">Spelers beheren</a></li>
+    <li><a asp-area="Admin" asp-controller="Speler" asp-action="LijstTeams">Speler toevoegen</a></li>
+    <li><a asp-area="Admin" asp-controller="Speler" asp-action="LijstVerwijderSpelerVanTeam">Speler verwijderen</a></li>
+    <li style="list-style-type: none;"><br/></li>
     <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Wedstrijden beheren</a></li>
+    <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="VoegWedstrijdToe">Wedstrijd toevoegen</a></li>
 </ul>
