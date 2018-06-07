@@ -115,10 +115,6 @@ nav {
     grid-template-columns: repeat(4,1fr);
 }
 
-.grid-4-colums-score {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-}
-
 .grid-2-colums {
     grid-template-columns: 1fr 1fr;
 }

@@ -3,15 +3,37 @@
     ViewData["Title"] = "Index";
 }
 
-@foreach (var knockout in Model.KnockoutStages)
-{
-    <div class="material-card"></div>
-    <p>@knockout.Type</p>
+<div class="grid-container">
 
-    <p>Belgie - Brazilië</p>
-    foreach (var wedstrijden in Model.KnockoutWedstrijden.GetValueOrDefault(knockout.Type))
+
+    @foreach (var knockout in Model.KnockoutStages)
     {
 
-    }
-}
 
+        <div class="shadow">
+            <div class="pouleHeader flex-container"><h2>@knockout.Type</h2></div>
+            <div class="grid-container grid-4-colums padding">
+                @{ Wedstrijd wedstrijd1 = new Wedstrijd()
+                {
+                    TeamThuis = new Team()
+                    {
+                        Naam = "België"
+                    },
+                    TeamUit = new Team
+                    {
+                        Naam = "Brazilië"
+                    },
+                    Datum = DateTime.Now,
+                };
+                }
+                @await Html.PartialAsync("WedstrijdDetail", wedstrijd1)
+
+                @foreach (var wedstrijd in Model.KnockoutWedstrijden.GetValueOrDefault(knockout.Type))
+                {
+                    @await Html.PartialAsync("WedstrijdDetail", wedstrijd);
+                }
+            </div>
+        </div>
+                    }
+
+</div>

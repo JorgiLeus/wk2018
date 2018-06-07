@@ -152,7 +152,6 @@ namespace WK2018.Data
 
             context.SaveChanges();
 
-
             new List<Wedstrijd>
             {
                 new Wedstrijd { ID=1, Datum= DateTime.Parse("14/06/2018 17:00:00"),  TeamThuisID=1, TeamUitID=2},
@@ -161,6 +160,22 @@ namespace WK2018.Data
                 new Wedstrijd { ID=4, Datum= DateTime.Parse("20/06/2018 17:00:00"),  TeamThuisID=4, TeamUitID=3},
                 new Wedstrijd { ID=5, Datum= DateTime.Parse("25/06/2018 16:00:00"),  TeamThuisID=4, TeamUitID=1},
                 new Wedstrijd { ID=6, Datum= DateTime.Parse("25/06/2018 16:00:00"),  TeamThuisID=2, TeamUitID=3},
+                new Wedstrijd { ID=7, Datum= DateTime.Parse("30/06/2018 16:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=8, Datum= DateTime.Parse("30/06/2018 16:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=9, Datum= DateTime.Parse("01/07/2018 16:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=10, Datum= DateTime.Parse("01/07/2018 20:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=11, Datum= DateTime.Parse("02/07/2018 16:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=12, Datum= DateTime.Parse("02/07/2018 20:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=13, Datum= DateTime.Parse("03/07/2018 16:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=14, Datum= DateTime.Parse("03/07/2018 20:00:00"), KnockoutID=1},
+                new Wedstrijd { ID=15, Datum= DateTime.Parse("06/07/2018 16:00:00"), KnockoutID=2},
+                new Wedstrijd { ID=16, Datum= DateTime.Parse("06/07/2018 20:00:00"), KnockoutID=2},
+                new Wedstrijd { ID=17, Datum= DateTime.Parse("07/07/2018 16:00:00"), KnockoutID=2},
+                new Wedstrijd { ID=18, Datum= DateTime.Parse("07/07/2018 20:00:00"), KnockoutID=2},
+                new Wedstrijd { ID=19, Datum= DateTime.Parse("10/07/2018 20:00:00"), KnockoutID=3},
+                new Wedstrijd { ID=20, Datum= DateTime.Parse("11/07/2018 20:00:00"), KnockoutID=3},
+                new Wedstrijd { ID=19, Datum= DateTime.Parse("14/07/2018 16:00:00"), KnockoutID=4},
+                new Wedstrijd { ID=20, Datum= DateTime.Parse("15/07/2018 17:00:00"), KnockoutID=5},
             }.ForEach(w => context.Wedstrijden.Add(w));
 
             context.SaveChanges();

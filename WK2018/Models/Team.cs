@@ -19,9 +19,6 @@ namespace WK2018.Models
         public int PouleID { get; set; }
         public Poule Poule { get; set; }
 
-        public int? KnockoutID { get; set; }
-        public Knockout Knockout { get; set; }
-
         public ICollection<Speler> Spelers { get; set; }
 
         [InverseProperty("TeamThuis")]
