@@ -13,8 +13,6 @@ namespace WK2018.Models
         public int ID { get; set; }
         [Required]
         public string Naam { get; set; }
-        [Required]
-        public int Punten => AantalGewonnenWedstrijden * 3 + AantalGelijkeWedstrijden;
 
         public int PouleID { get; set; }
         public Poule Poule { get; set; }
@@ -27,6 +25,7 @@ namespace WK2018.Models
         public ICollection<Wedstrijd> UitWedstrijden { get; set; }
 
         #region Calculated Fields
+        public int Punten => AantalGewonnenWedstrijden * 3 + AantalGelijkeWedstrijden;
 
         // Gebruik van ? om if != null te vermijden
         private int GespeeldeThuisWedstrijden => ThuisWedstrijden?.Where(t => t.ScoreThuis != null).Count() ?? 0;
