@@ -9,7 +9,7 @@
         <div class="pouleHeader flex-container"><h2>Poule @Model.Poule.Naam</h2></div>
         <div class="grid-container grid-9-colums padding">
             <p><b>Naam</b></p> <p class="text-center"><b>GW</b></p> <p class="text-center"> <b>W</b></p> <p class="text-center"><b>G</b></p> <p class="text-center"><b>V</b></p> <p class="text-center"><b>DV</b></p> <p class="text-center"><b>DT</b></p> <p class="text-center"><b>DS</b></p> <p class="text-center"><b>Pnt</b></p>
-            @foreach (var team in Model.Poule.Teams)
+            @foreach (var team in Model.Poule.Teams.OrderBy(t => t.Doelsaldo).OrderBy(t => t.Punten).Reverse())
             {
                 <p> @team.Naam </p><p class="text-center"> @team.GespeeldeWedstrijden </p> <p class="text-center">@team.AantalGewonnenWedstrijden</p> <p class="text-center">@team.AantalGelijkeWedstrijden</p>
                 <p class="text-center">@team.AantalVerlorenWedstrijden</p> <p class="text-center">@team.DoelpuntenVoor</p>
