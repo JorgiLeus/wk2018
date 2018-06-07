@@ -3,13 +3,13 @@
     ViewData["Title"] = "Admin Maintain Page";
 }
 
-<h4>Admin page</h4>
+<h4>Overzicht</h4>
 
-<ul>
-    <li><a asp-area="Admin" asp-controller="Speler" asp-action="Index">Spelers beheren</a></li>
-    <li><a asp-area="Admin" asp-controller="Speler" asp-action="LijstTeams">Speler toevoegen</a></li>
-    <li><a asp-area="Admin" asp-controller="Speler" asp-action="LijstVerwijderSpelerVanTeam">Speler verwijderen</a></li>
-    <li style="list-style-type: none;"><br/></li>
-    <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Wedstrijden beheren</a></li>
-    <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="VoegWedstrijdToe">Wedstrijd toevoegen</a></li>
-</ul>
+<p>Dit is de admin pagina voor het WK 2018 project.</p>
+<p>Wij heten u welkom op onze site en wensen u een gebruiksvriendelijk bezoek!</p>
+
+<div class="list-group col-md-3">
+    <a class="list-group-item list-group-item-action list-group-item-info text-center" asp-area="Admin" asp-controller="Speler" asp-action="Index">Beheren Spelers</a>
+    <a class="list-group-item list-group-item-action list-group-item-success text-center" asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Beheren Wedstrijd</a>
+    <a class="list-group-item list-group-item-action list-group-item-info text-center" asp-area="Admin" asp-controller="Wedstrijd" asp-action="VoegWedstrijdToe">Wedstrijd toevoegen</a>
+</div>
