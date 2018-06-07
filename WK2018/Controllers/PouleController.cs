@@ -39,6 +39,7 @@ namespace WK2018.Controllers
             List<Wedstrijd> wedstrijden = _context.Wedstrijden
                 .Include(w => w.TeamThuis)
                 .Include(w => w.TeamUit)
+                .OrderBy(w => w.Datum)
                 .Where(w => w.TeamThuis.PouleID == id)
                 .ToList();
 

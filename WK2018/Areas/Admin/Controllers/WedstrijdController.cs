@@ -89,7 +89,7 @@ namespace WK2018.Areas.Admin.Controllers
                 {
                     throw;
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Maintain");
             }
             return View(wedstrijd);
         }

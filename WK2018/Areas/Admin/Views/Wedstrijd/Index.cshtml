@@ -9,6 +9,8 @@
 <ul>
     @foreach (Wedstrijd wedstrijd in Model)
     {
-        <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="WijzigWedstrijd" asp-route-id="@wedstrijd.ID">@wedstrijd.Datum @wedstrijd.TeamThuis.Naam - @wedstrijd.TeamUit.Naam</a></li>
+        String Thuisnaam = wedstrijd.TeamThuis?.Naam ?? "TBD";
+        String Uitnaam = wedstrijd.TeamUit?.Naam ?? "TBD";
+        <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="WijzigWedstrijd" asp-route-id="@wedstrijd.ID">@wedstrijd.Datum @Thuisnaam - @Uitnaam</a></li>
     }
 </ul>
