@@ -13,11 +13,11 @@ namespace WK2018.Models
         public int ID { get; set; }
         [Required]
         public string Type { get; set; }
+        [Required]
 
-        
         public int ToernooiID { get; set; }
         public Toernooi Toernooi { get; set; }
-
         public ICollection<Team> Teams { get; set; }
+        public ICollection<Wedstrijd> Wedstrijden { get; set; }
     }
 }
