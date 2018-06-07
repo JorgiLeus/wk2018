@@ -59,12 +59,6 @@ namespace WK2018.Areas.Admin.Controllers
             return View(speler);
         }
 
-        public IActionResult LijstTeams()
-        {
-            List<Team> teams = _context.Teams.ToList();
-            return View(teams);
-        }
-
         public IActionResult VoegSpelerToe(int id)
         {
             Speler speler = new Speler();
@@ -101,21 +95,9 @@ namespace WK2018.Areas.Admin.Controllers
                 {
                     throw;
                 }
-                return RedirectToAction("LijstTeams", new { id = speler.TeamID });
+                return RedirectToAction("ListSpelers", new { id = speler.TeamID });
             }
             return View(speler);
-        }
-
-        public IActionResult LijstVerwijderSpelerVanTeam()
-        {
-            List<Team> teams = _context.Teams.ToList();
-            return View(teams);
-        }
-
-        public IActionResult LijstSpelers(int id)
-        {
-            List<Speler> spelers = _context.Spelers.Where(x => x.TeamID == id).ToList();
-            return View(spelers);
         }
 
         public IActionResult VerwijderSpeler(int id)
@@ -123,7 +105,7 @@ namespace WK2018.Areas.Admin.Controllers
             Speler speler = _context.Spelers.Where(s => s.ID == id).SingleOrDefault();
             _context.Remove(speler);
             _context.SaveChanges();
-            return RedirectToAction("LijstSpelers", new { id = speler.TeamID});
+            return RedirectToAction("ListSpelers", new { id = speler.TeamID});
         }
     }
 }

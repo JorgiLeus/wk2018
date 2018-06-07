@@ -6,9 +6,30 @@
 
 <h2>Lijst Teams - Speler Beheren</h2>
 
-<ul>
-    @foreach (Team team in Model)
-{
-    <li><a asp-area="Admin" asp-controller="Speler" asp-action="ListSpelers" asp-route-id="@team.ID">@team.Naam</a></li>
-}
-</ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Team
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Team team in Model)
+        {
+        <tr>
+            <td>
+                @team.Naam
+            </td>
+            <td>
+                <a asp-area="Admin" asp-controller="Speler" asp-action="ListSpelers" asp-route-id="@team.ID"><i class="far fa-edit"></i> Edit/Delete</a>
+            </td>
+            <td>
+                <a asp-area="Admin" asp-controller="Speler" asp-action="VoegSpelerToe" asp-route-id="@team.ID"><i class="fas fa-plus"></i> Add</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
