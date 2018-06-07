@@ -1,0 +1,13 @@
+﻿@model List<Poule>
+@{
+    ViewData["Title"] = "Poules";
+}
+
+<div class="grid-container grid-4-colums">
+    @foreach (var poule in Model)
+    {
+        @await Html.PartialAsync("PouleCard", poule);
+    }
+</div>
+
+

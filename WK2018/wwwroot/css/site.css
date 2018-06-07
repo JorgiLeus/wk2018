@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root {
     --primary-color: #e74c3c;
     --secondary-color: #f1c40f;
 }
@@ -7,8 +9,11 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+
 body, html {
     height: 100%;
+    color: rgba(0,0,0,0.8);
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -29,7 +34,7 @@ nav {
         transition: background 0.2s ease-in-out;
     }
 
-        nav a:hover, nav a:active {
+        nav a:hover, nav a:active, nav a:focus {
             background: #c0392b !important;
         }
 
@@ -37,20 +42,85 @@ nav {
     height: 600px;
 }
 
+.reset-link {
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+}
+
+    .reset-link:hover {
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+    }
+
+    .reset-link:visited {
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+    }
+
+    .reset-link:focus {
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+    }
+
 .material-card {
     padding: 30px;
     width: 300px;
     height: 300px;
+}
+
+.shadow {
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    overflow: hidden;
+}
+
+.shadow-hover {
+    transition: box-shadow 0.2s cubic-bezier(.25,.8,.25,1);
+}
+
+    .shadow-hover:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    .shadow-hover:active {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+.pouleHeader {
+    background: #e74c3c;
+    color: #f5f5f5;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.padding {
+    padding: 15px;
 }
 
 .grid-container {
     padding-top: 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
-    justify-items: center;
+}
+
+.grid-9-colums {
+    grid-template-columns:  4fr repeat(8,1fr);
+}
+
+.grid-3-colums {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-4-colums {
+    grid-template-columns: repeat(4,1fr);
+}
+
+.grid-4-colums-score {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.grid-2-colums {
+    grid-template-columns: 1fr 1fr;
 }
 
 .flex-container {
@@ -58,6 +128,9 @@ nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.full-height {
     height: 100%;
 }
 

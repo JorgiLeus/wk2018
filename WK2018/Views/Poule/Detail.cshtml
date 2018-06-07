@@ -1,0 +1,53 @@
+﻿@model WK2018.Models.PouleViewModels.DetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="flex-container padding">
+
+    <div class="shadow flex-container">
+        <div class="pouleHeader flex-container"><h2>Poule @Model.Poule.Naam</h2></div>
+        <div class="grid-container grid-9-colums padding">
+            <p><b>Naam</b></p> <p class="text-center"><b>GW</b></p> <p class="text-center"> <b>W</b></p> <p class="text-center"><b>G</b></p> <p class="text-center"><b>V</b></p> <p class="text-center"><b>DV</b></p> <p class="text-center"><b>DT</b></p> <p class="text-center"><b>DS</b></p> <p class="text-center"><b>Pnt</b></p>
+            @foreach (var team in Model.Poule.Teams)
+            {
+                <p> @team.Naam </p><p class="text-center"> @team.GespeeldeWedstrijden </p> <p class="text-center">@team.AantalGewonnenWedstrijden</p> <p class="text-center">@team.AantalGelijkeWedstrijden</p>
+                <p class="text-center">@team.AantalVerlorenWedstrijden</p> <p class="text-center">@team.DoelpuntenVoor</p>
+                <p class="text-center">@team.DoelpuntenTegen</p> <p class="text-center">@team.Doelsaldo</p> <p class="text-center">@team.Punten</p>
+            }
+        </div>
+    </div>
+
+    <div class="flex-container padding">
+        <h2 class="text-center">Wedstrijden</h2>
+        <div class="grid-container grid-4-colums">
+            @foreach (var wedstrijd in Model.Wedstrijden)
+            {
+                <p>
+                    @if (wedstrijd.ScoreThuis != null)
+                {
+                    <text>@wedstrijd.Datum.ToString("dd MMMM yyyy HH:mm")</text>
+                }
+                else
+                {
+                    <text>@wedstrijd.Datum.ToString("dd MMMM yyyy")</text>
+                }
+            </p>
+                <p class="text-right"> @wedstrijd.TeamThuis.Naam </p>
+                <p class="text-center">
+                    @if (wedstrijd.ScoreThuis != null)
+                    {
+                        <text>@wedstrijd.ScoreThuis - @wedstrijd.ScoreUit</text>
+                    }
+                    else
+                    {
+                        <text>@wedstrijd.Datum.ToString("HH:mm")</text>
+                    }
+                </p>
+                    <p> @wedstrijd.TeamUit.Naam </p>
+            }
+
+        </div>
+    </div>
+
+</div>
