@@ -1,0 +1,17 @@
+﻿@model WK2018.Models.KnockoutViewModels.IndexKnockoutViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var knockout in Model.KnockoutStages)
+{
+    <div class="material-card"></div>
+    <p>@knockout.Type</p>
+
+    <p>Belgie - Brazilië</p>
+    foreach (var wedstrijden in Model.KnockoutWedstrijden.GetValueOrDefault(knockout.Type))
+    {
+
+    }
+}
+
