@@ -123,7 +123,7 @@ namespace WK2018.Areas.Admin.Controllers
             Speler speler = _context.Spelers.Where(s => s.ID == id).SingleOrDefault();
             _context.Remove(speler);
             _context.SaveChanges();
-            return RedirectToAction("LijstVerwijderSpelerVanTeam");
+            return RedirectToAction("LijstSpelers", new { id = speler.TeamID});
         }
     }
 }
