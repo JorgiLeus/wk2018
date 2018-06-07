@@ -6,11 +6,36 @@
 
 <h2>Lijst Spelers</h2>
 
-<ul>
-    @foreach (Speler speler in Model)
-    {
-        <li><a asp-area="Admin" asp-controller="Speler" asp-action="WijzigSpeler" asp-route-id="@speler.ID">@speler.Naam</a></li>
-    }
-</ul>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Speler
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Speler speler in Model)
+        {
+            <tr>
+                <td>
+                    @speler.Naam
+                </td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Speler" asp-action="WijzigSpeler" asp-route-id="@speler.ID"><i class="far fa-edit"></i> Edit</a>
+                </td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Speler" asp-action="VerwijderSpeler" asp-route-id="@speler.ID"><i class="fas fa-times"></i> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <a asp-area="Admin" asp-controller="Speler" asp-action="Index">Back</a>

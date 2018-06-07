@@ -13,10 +13,12 @@
         <label asp-for="Naam">@Html.DisplayNameFor(n => n.Naam)</label>
         <input type="text" class="form-control" asp-for="Naam" />
     </div>
+    <br/>
     <div class="form-group">
         <label asp-for="Positie">@Html.DisplayNameFor(n => n.Positie)</label>
         <input type="text" class="form-control" asp-for="Positie" />
     </div>
+    <br/>
     <div class="form-group">
         <label asp-for="GeboorteDatum">@Html.DisplayNameFor(n => n.GeboorteDatum)</label>
         <input type="date" class="form-control" asp-for="GeboorteDatum" />
@@ -29,4 +31,4 @@
     <input type="submit" value="Toevoegen"/>
 </form>
 
-<a asp-area="Admin" asp-controller="Speler" asp-action="LijstTeams" asp-route-id="@Model.TeamID">Back</a>
+<a asp-area="Admin" asp-controller="Speler" asp-action="Index" asp-route-id="@Model.TeamID">Back</a>
