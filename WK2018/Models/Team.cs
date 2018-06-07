@@ -14,7 +14,7 @@ namespace WK2018.Models
         [Required]
         public string Naam { get; set; }
         [Required]
-        public int Punten { get; set; }
+        public int Punten => AantalGewonnenWedstrijden * 3 + AantalGelijkeWedstrijden;
 
         public int PouleID { get; set; }
         public Poule Poule { get; set; }
@@ -28,27 +28,35 @@ namespace WK2018.Models
         public ICollection<Wedstrijd> ThuisWedstrijden { get; set; }
         [InverseProperty("TeamUit")]
         public ICollection<Wedstrijd> UitWedstrijden { get; set; }
-        //public ICollection<Wedstrijd> Wedstrijden => ThuisWedstrijden.Concat(UitWedstrijden).ToList();
 
-        public int GespeeldeWedstrijden
-        {
-            get
-            {
-                return 0;
-            }
-        }
+        #region Calculated Fields
 
-        public int AantalGewonnenWedstrijden => 0;
+        // Gebruik van ? om if != null te vermijden
+        private int GespeeldeThuisWedstrijden => ThuisWedstrijden?.Where(t => t.ScoreThuis != null).Count() ?? 0;
+        private int GespeeldeUitWedstrijden => UitWedstrijden?.Where(t => t.ScoreThuis != null).Count() ?? 0;
+        public int GespeeldeWedstrijden => GespeeldeThuisWedstrijden + GespeeldeUitWedstrijden;
 
-        public int AantalGelijkeWedstrijden => 0;
+        private int GewonnenThuisWedstrijden => ThuisWedstrijden?.Where(w => w.ScoreThuis > w.ScoreUit).Count() ?? 0;
+        private int GewonnenUitWedstrijden => UitWedstrijden?.Where(w => w.ScoreUit > w.ScoreThuis).Count() ?? 0;
+        public int AantalGewonnenWedstrijden => GewonnenThuisWedstrijden + GewonnenUitWedstrijden;
 
-        public int AantalVerlorenWedstrijden => 0;
+        private int GelijkeThuisWedstrijden => ThuisWedstrijden?.Where(w => w.ScoreThuis == w.ScoreUit && w.ScoreThuis != null).Count() ?? 0;
+        private int GelijkeUitWedstrijden => UitWedstrijden?.Where(w => w.ScoreUit == w.ScoreThuis && w.ScoreThuis != null).Count() ?? 0;
+        public int AantalGelijkeWedstrijden => GelijkeThuisWedstrijden + GelijkeUitWedstrijden;
 
-        public int DoelpuntenVoor => 0;
+        private int VerlorenThuisWedstrijden => ThuisWedstrijden?.Where(w => w.ScoreThuis < w.ScoreUit).Count() ?? 0;
+        private int VerlorenUitWedstrijden => UitWedstrijden?.Where(w => w.ScoreUit < w.ScoreThuis).Count() ?? 0;
+        public int AantalVerlorenWedstrijden => VerlorenThuisWedstrijden + VerlorenUitWedstrijden;
 
-        public int DoelpuntenTegen => 0;
+        private int AantalDoelpuntenVoorUit => UitWedstrijden?.Select(w => w.ScoreUit).ToList().Sum() ?? 0;
+        private int AantalDoelpuntenVoorThuis => ThuisWedstrijden?.Select(w => w.ScoreThuis).ToList().Sum() ?? 0;
+        public int DoelpuntenVoor => AantalDoelpuntenVoorThuis + AantalDoelpuntenVoorUit;
 
-        public int Doelsaldo => 0;
+        private int AantalDoelpuntenTegenUit => UitWedstrijden?.Select(w => w.ScoreThuis).ToList().Sum() ?? 0;
+        private int AantalDoelpuntenTegenThuis => ThuisWedstrijden?.Select(w => w.ScoreUit).ToList().Sum() ?? 0;
+        public int DoelpuntenTegen => AantalDoelpuntenTegenThuis + AantalDoelpuntenTegenUit;
 
+        public int Doelsaldo => DoelpuntenVoor - DoelpuntenTegen;
+        #endregion
     }
 }

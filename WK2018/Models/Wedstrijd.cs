@@ -14,7 +14,6 @@ namespace WK2018.Models
         [Required]
         public DateTime Datum { get; set; }
 
-       
         public int? ScoreThuis { get; set; }
         public int? ScoreUit { get; set; }
 

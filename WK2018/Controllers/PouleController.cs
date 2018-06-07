@@ -22,20 +22,33 @@ namespace WK2018.Controllers
 
         public IActionResult Index()
         {
-            List<Poule> poules = _context.Poules.Include(p => p.Teams).OrderBy(p => p.Naam).ToList();
+            List<Poule> poules = _context.Poules
+                .Include(p => p.Teams)
+                .OrderBy(p => p.Naam)
+                .ToList();
 
             return View(poules);
         }
 
         public IActionResult Detail(int id)
         {
-            Poule poule = _context.Poules.Include(p => p.Teams).Where(p => p.ID == id).SingleOrDefault();
+            Poule poule = _context.Poules
+                .Include(p => p.Teams)
+                .Where(p => p.ID == id).SingleOrDefault();
 
-            DetailViewModel vm = new DetailViewModel();
+            List<Wedstrijd> wedstrijden = _context.Wedstrijden
+                .Include(w => w.TeamThuis)
+                .Include(w => w.TeamUit)
+                .Where(w => w.TeamThuis.PouleID == id)
+                .ToList();
 
-            vm.Poule = poule;
+            DetailViewModel datailViewModel = new DetailViewModel
+            {
+                Poule = poule,
+                Wedstrijden = wedstrijden
+            };
 
-            return View(vm);
+            return View(datailViewModel);
         }
     }
 }
