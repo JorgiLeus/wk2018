@@ -1,13 +1,15 @@
 ﻿@model Wedstrijd
 
 @{
-    ViewData["Title"] = "WijzigWedstrijd";
+    ViewData["Title"] = "VoegWedstrijdToe";
+
+    var thuis = (IEnumerable<SelectListItem>)ViewData["LijstTeamThuis"];
+    var uit = (IEnumerable<SelectListItem>)ViewData["LijstTeamUit"];
 }
 
-<h2>Wijzig de wedstrijd</h2>
+<h2>Nieuwe wedstrijd</h2>
 
-<form asp-action="WijzigWedstrijd">
-    <input asp-for="ID" type="hidden" />
+<form asp-action="VoegWedstrijdToe">
     <div class="form-group">
         <label asp-for="Datum">@Html.DisplayNameFor(x => x.Datum)</label>
         <input asp-for="Datum" class="form-control" id="datetimepicker" type="text" />
@@ -15,8 +17,8 @@
     <br />
     <div class="form-group">
         <label asp-for="TeamThuis.Naam">Thuisteam</label>
-        <input asp-for="TeamThuis.Naam" class="form-control" value="@Model.TeamThuis.Naam" disabled/>
-        <input asp-for="TeamThuisID" value="@Model.TeamThuisID" type="hidden"/>
+
+        <select asp-for="TeamThuisID" asp-items="@thuis"></select>
     </div>
     <br />
     <div class="form-group">
@@ -26,18 +28,17 @@
     <br />
     <div class="form-group">
         <label asp-for="TeamUit.Naam">Uitteam</label>
-        <input asp-for="TeamThuis.Naam" class="form-control" value="@Model..TeamUit.Naam" disabled />
-        <input asp-for="TeamUitID" value="@Model.TeamUitID" type="hidden" />
+
+        <select asp-for="TeamUitID" asp-items="@uit"></select>
     </div>
     <br />
     <div class="form-group">
         <label asp-for="ScoreUit">Score uit</label>
         <input asp-for="ScoreUit" class="form-control" type="number" />
     </div>
-    <input type="submit" value="Wijzig"/>
+    <input type="submit" value="VoegToe" />
 </form>
 
 <a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Back</a>
 
 <script>jQuery('#datetimepicker').datetimepicker();</script>
-
