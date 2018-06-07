@@ -30,13 +30,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                </a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WK2018</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="Admin" asp-controller="Maintain" asp-action="Index">Overzicht</a></li>
-                    <li><a asp-area="Admin" asp-controller="Team" asp-action="Index">Beheren Team</a></li>
+                    <li><a asp-area="Admin" asp-controller="Speler" asp-action="Index">Beheren Spelers</a></li>
+                    <li><a asp-area="Admin" asp-controller="Speler" asp-action="LijstTeams">Toevoegen Spelers</a></li>
                     <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Beheren Wedstrijd</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")

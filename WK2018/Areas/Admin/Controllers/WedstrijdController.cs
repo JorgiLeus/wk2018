@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WK2018.Areas.Admin.Models.WedstrijdViewModel;
 using WK2018.Data;
 using WK2018.Models;
 

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Speler>
+@{
+    ViewData["Title"] = "Lijst Spelers";
+}
+
+<h2>Lijst Spelers</h2>
+
+<table border="0">
+    <thead>
+        <tr class="row">
+            <th class="col-md-6">
+                Naam
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Speler speler in Model)
+    {
+        <tr class="row">
+            <td class="col-md-6">@speler.Naam</td>
+            <td><a asp-area="Admin" asp-controller="Speler" asp-action="VerwijderSpeler" asp-route-id="@speler.ID"> Verwijderen</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-area="Admin" asp-controller="Speler" asp-action="LijstVerwijderSpelerVanTeam">Back</a>

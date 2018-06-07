@@ -1,0 +1,37 @@
+﻿@model Speler
+
+@{
+    ViewData["Title"] = "Wijzig Speler";
+}
+
+<h2>Wijzig Speler</h2>
+
+<form asp-action="WijzigSpeler">
+    <input asp-for="ID" type="hidden" />
+    <input asp-for="Naam" type="hidden" />
+    <input asp-for="TeamID" type="hidden" />
+    <input asp-for="Positie" type="hidden" />
+    <input asp-for="GeboorteDatum" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Naam">@Model.Naam</label>
+        <br />
+        <label asp-for="WG">Wedstrijden gespeeld</label>
+        <input asp-for="WG" class="form-control" type="number" />
+    </div>
+    <div>
+        <label asp-for="GK">Gele kaarten</label>
+        <input asp-for="GK" class="form-control" type="number" />
+    </div>
+    <div>
+        <label asp-for="RK">Rode kaarten</label>
+        <input asp-for="RK" class="form-control" type="number" />
+    </div>
+    <div>
+        <label asp-for="DP">Doelpunten</label>
+        <input asp-for="DP" class="form-control" type="number" />
+    </div>
+    <br />
+    <input type="submit" value="Wijzig" />
+</form>
+
+<a asp-area="Admin" asp-controller="Speler" asp-action="ListSpelers" asp-route-id="@Model.TeamID">Back</a>
