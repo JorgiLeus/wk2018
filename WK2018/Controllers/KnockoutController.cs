@@ -21,27 +21,9 @@ namespace WK2018.Controllers
 
         public IActionResult Index()
         {
-            List<Knockout> knockoutsStages = _context.KnockoutStages.Include(k => k.Teams).ToList();
+            List<Knockout> knocouts = _context.KnockoutStages.Include(k => k.Wedstrijden).ToList();
 
-            Dictionary<String, List<Wedstrijd>> wedstrijdenPerKnockout = new Dictionary<string, List<Wedstrijd>>();
-
-            knockoutsStages.ForEach(stage =>
-            {
-                List<Wedstrijd> wedstrijden = _context.Wedstrijden
-                .Include(w=> w.TeamThuis)
-                .Include(w=> w.TeamUit)
-                .Where(w => w.TeamThuis.KnockoutID == stage.ID)
-                .ToList();
-
-                wedstrijdenPerKnockout.Add(stage.Type, wedstrijden);
-            });
-
-            IndexKnockoutViewModel vm = new IndexKnockoutViewModel() {
-                KnockoutStages = knockoutsStages,
-                KnockoutWedstrijden = wedstrijdenPerKnockout
-            };
-
-            return View(vm);
+            return View(knocouts);
         }
     }
 }

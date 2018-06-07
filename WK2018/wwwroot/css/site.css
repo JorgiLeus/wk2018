@@ -119,6 +119,10 @@ nav {
     grid-template-columns: 1fr 1fr;
 }
 
+.grid-item-start {
+    align-self: start;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;

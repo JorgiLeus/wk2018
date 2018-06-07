@@ -1,34 +1,17 @@
-﻿@model WK2018.Models.KnockoutViewModels.IndexKnockoutViewModel
+﻿@model List<Knockout>
 @{
     ViewData["Title"] = "Index";
 }
 
-<div class="grid-container">
+<div class="grid-container grid-2-colums">
 
 
-    @foreach (var knockout in Model.KnockoutStages)
+    @foreach (var knockout in Model)
     {
-
-
-        <div class="shadow">
+        <div class="shadow grid-item-start">
             <div class="pouleHeader flex-container"><h2>@knockout.Type</h2></div>
             <div class="grid-container grid-4-colums padding">
-                @{ Wedstrijd wedstrijd1 = new Wedstrijd()
-                {
-                    TeamThuis = new Team()
-                    {
-                        Naam = "België"
-                    },
-                    TeamUit = new Team
-                    {
-                        Naam = "Brazilië"
-                    },
-                    Datum = DateTime.Now,
-                };
-                }
-                @await Html.PartialAsync("WedstrijdDetail", wedstrijd1)
-
-                @foreach (var wedstrijd in Model.KnockoutWedstrijden.GetValueOrDefault(knockout.Type))
+                @foreach (var wedstrijd in knockout.Wedstrijden)
                 {
                     @await Html.PartialAsync("WedstrijdDetail", wedstrijd);
                 }

@@ -13,7 +13,18 @@
         <text>@Model.Datum.ToString("dd MMMM yyyy")</text>
     }
 </p>
-<p class="text-right"> @Model.TeamThuis.Naam </p>
+<p class="text-right">
+    @if (Model.TeamThuis != null)
+    {
+
+        <text>@Model.TeamThuis.Naam </text>
+
+    }
+    else
+    {
+        <text>T.B.D</text>
+    }
+</p>
 <p class="text-center">
     @if (Model.ScoreThuis != null)
     {
@@ -24,5 +35,13 @@
         <text>@Model.Datum.ToString("HH:mm")</text>
     }
 </p>
-<p> @Model.TeamUit.Naam </p>
-
+<p>
+    @if (Model.TeamUit != null)
+    {
+        <text>@Model.TeamUit.Naam </text>
+    }
+    else
+    {
+        <text>T.B.D</text>
+    }
+</p>
