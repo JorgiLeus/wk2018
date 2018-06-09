@@ -27,6 +27,18 @@ namespace WK2018.Controllers
                 .OrderBy(p => p.Naam)
                 .ToList();
 
+            foreach (var poule in poules)
+            {
+                foreach (var team in poule.Teams)
+                {
+                    _context.Wedstrijden
+                    .Include(w => w.TeamThuis)
+                    .Include(w => w.TeamUit)
+                    .Where(w => w.TeamThuis.PouleID == poule.ID)
+                    .ToList();
+                }
+            }
+
             return View(poules);
         }
 
@@ -41,6 +53,7 @@ namespace WK2018.Controllers
                 .Include(w => w.TeamUit)
                 .OrderBy(w => w.Datum)
                 .Where(w => w.TeamThuis.PouleID == id)
+                .Where(w=> w.KnockoutID == null)
                 .ToList();
 
             DetailViewModel datailViewModel = new DetailViewModel

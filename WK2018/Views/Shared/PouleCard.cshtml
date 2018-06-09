@@ -6,7 +6,7 @@
     <div class="pouleHeader flex-container"><h2>Poule @Model.Naam</h2></div>
     <div class="grid-container grid-2-colums padding">
         <p><b>Team</b></p><p class="text-center"><b>Pnt</b></p>
-        @foreach (var team in Model.Teams)
+        @foreach (var team in Model.Teams.OrderBy(t => t.Doelsaldo).OrderBy(t=> t.Punten).Reverse())
         {
             <div>@team.Naam</div>
             <div class="text-center">@team.Punten</div>
