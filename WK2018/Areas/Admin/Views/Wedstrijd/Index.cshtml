@@ -6,7 +6,7 @@
 
 <h2>Beheren van wedstrijden</h2>
 
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -18,15 +18,14 @@
         </tr>
     </thead>
     <tbody>
-
+        @foreach(Wedstrijd wedstrijd in Model)
+        {
+            String Thuisnaam = wedstrijd.TeamThuis?.Naam ?? "TBD";
+            String Uitnaam = wedstrijd.TeamUit?.Naam ?? "TBD";
+            <tr>
+                <td>@wedstrijd.Datum</td>
+                <td><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="WijzigWedstrijd" asp-route-id="@wedstrijd.ID"><i class="far fa-edit">@Thuisnaam - @Uitnaam</i></a></td>
+            </tr>
+        }
     </tbody>
 </table>
-
-<ul>
-    @foreach (Wedstrijd wedstrijd in Model)
-    {
-        String Thuisnaam = wedstrijd.TeamThuis?.Naam ?? "TBD";
-        String Uitnaam = wedstrijd.TeamUit?.Naam ?? "TBD";
-        <li><a asp-area="Admin" asp-controller="Wedstrijd" asp-action="WijzigWedstrijd" asp-route-id="@wedstrijd.ID">@wedstrijd.Datum @Thuisnaam - @Uitnaam</a></li>
-    }
-</ul>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WK2018.Areas.Admin.Models.WedstrijdViewModel;
 using WK2018.Data;
 using WK2018.Models;
 
@@ -56,9 +57,16 @@ namespace WK2018.Areas.Admin.Controllers
 
         public IActionResult VoegWedstrijdToe()
         {
-            ViewData["LijstTeamThuis"] = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
-            ViewData["LijstTeamUit"] = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
-            return View();
+            SelectList thuisteams = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
+            SelectList uitteams = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
+
+            VoegWedstrijdToeViewModel vm = new VoegWedstrijdToeViewModel
+            {
+                Thuisteams = thuisteams,
+                Uitteams = uitteams
+            };
+            
+            return View(vm);
         }
 
         [HttpPost]
