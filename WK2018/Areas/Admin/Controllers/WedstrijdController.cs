@@ -65,10 +65,7 @@ namespace WK2018.Areas.Admin.Controllers
                 Thuisteams = thuisteams,
                 Uitteams = uitteams
             };
-
-            //ViewData["LijstTeamThuis"] = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
-            //ViewData["LijstTeamUit"] = new SelectList(_context.Teams.OrderBy(x => x.Naam), "ID", "Naam");
-
+            
             return View(vm);
         }
 
