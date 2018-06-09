@@ -41,6 +41,26 @@ namespace WK2018.Areas.Admin.Utils
             SimuleerFinale();
         }
 
+        internal void ResetToernooi()
+        {
+           List<Wedstrijd> wedstrijden = _context.Wedstrijden.ToList();
+
+            foreach (var wedstrijd in wedstrijden)
+            {
+                wedstrijd.ScoreThuis = null;
+                wedstrijd.ScoreUit = null;
+
+                if (wedstrijd.KnockoutID != null)
+                {
+                    wedstrijd.TeamThuisID = null;
+                    wedstrijd.TeamUitID = null;
+                }
+
+                _context.Update(wedstrijd);
+            }
+            _context.SaveChanges();
+        }
+
         public void SimuleerAchtsteFinale()
         {
             List<Wedstrijd> wedstrijden = GetWedstrijdenForKnockoutID(1);

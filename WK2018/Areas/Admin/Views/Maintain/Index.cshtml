@@ -1,4 +1,4 @@
-﻿
+﻿@model string
 @{
     ViewData["Title"] = "Admin Maintain Page";
 }
@@ -13,4 +13,7 @@
     <a class="list-group-item list-group-item-action list-group-item-success text-center" asp-area="Admin" asp-controller="Wedstrijd" asp-action="Index">Beheren Wedstrijd</a>
     <a class="list-group-item list-group-item-action list-group-item-info text-center" asp-area="Admin" asp-controller="Wedstrijd" asp-action="VoegWedstrijdToe" >Wedstrijd toevoegen</a>
     <a class="list-group-item list-group-item-action list-group-item-success text-center" asp-area="Admin" asp-controller="Simulatie" asp-action="Index" >Simuleer Toernooi</a>
+    <a class="list-group-item list-group-item-action list-group-item-info text-center" asp-area="Admin" asp-controller="Simulatie" asp-action="Reset" >Reset Toernooi</a>
 </div>
+
+<h2>@Model</h2>
