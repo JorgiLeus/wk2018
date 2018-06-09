@@ -22,12 +22,18 @@ namespace WK2018.Models
 
         [ForeignKey("TeamThuis")]
         public int? TeamThuisID { get; set; }
-        
+
         public Team TeamThuis { get; set; }
 
         [ForeignKey("TeamUit")]
         public int? TeamUitID { get; set; }
-        
+
         public Team TeamUit { get; set; }
+
+        public Team Winnaar => ScoreThuis > ScoreUit ? TeamThuis : TeamUit;
+
+        public Team Verliezer => ScoreUit > ScoreThuis ? TeamThuis : TeamUit;
+
+        public bool IsGelijkSpel => ScoreThuis == ScoreUit;
     }
 }

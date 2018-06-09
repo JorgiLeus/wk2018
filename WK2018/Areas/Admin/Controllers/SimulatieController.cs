@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WK2018.Areas.Admin.Simulator;
+using WK2018.Areas.Admin.Utils;
 using WK2018.Data;
 
 namespace WK2018.Areas.Admin.Controllers
@@ -24,7 +24,7 @@ namespace WK2018.Areas.Admin.Controllers
         {
             ToernooiSimulator simulator = new ToernooiSimulator(_context);
 
-            simulator.SimuleerGroepsfase();
+            simulator.SimuleerToernooi();
 
             return View();
         }

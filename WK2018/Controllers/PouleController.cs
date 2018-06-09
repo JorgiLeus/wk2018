@@ -53,6 +53,7 @@ namespace WK2018.Controllers
                 .Include(w => w.TeamUit)
                 .OrderBy(w => w.Datum)
                 .Where(w => w.TeamThuis.PouleID == id)
+                .Where(w=> w.KnockoutID == null)
                 .ToList();
 
             DetailViewModel datailViewModel = new DetailViewModel

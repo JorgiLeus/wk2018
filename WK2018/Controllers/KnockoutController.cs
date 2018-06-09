@@ -23,6 +23,16 @@ namespace WK2018.Controllers
         {
             List<Knockout> knocouts = _context.KnockoutStages.Include(k => k.Wedstrijden).ToList();
 
+            //THE MAGIC OF ENTITY FRAMEWORK HAPPENS HERE
+            foreach (var knockout in knocouts)
+            {
+               List<Wedstrijd> wedstrijden = _context.Wedstrijden
+                    .Include(w => w.TeamUit)
+                    .Include(w => w.TeamThuis)
+                    .Where(w => w.KnockoutID == knockout.ID)
+                    .ToList();
+            }
+
             return View(knocouts);
         }
     }
