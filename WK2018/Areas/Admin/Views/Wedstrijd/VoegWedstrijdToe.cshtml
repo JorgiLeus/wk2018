@@ -1,4 +1,4 @@
-﻿@model Wedstrijd
+﻿@model WK2018.Areas.Admin.Models.WedstrijdViewModel.VoegWedstrijdToeViewModel
 
 @{
     ViewData["Title"] = "VoegWedstrijdToe";
@@ -11,30 +11,30 @@
 
 <form asp-action="VoegWedstrijdToe">
     <div class="form-group">
-        <label asp-for="Datum">@Html.DisplayNameFor(x => x.Datum)</label>
-        <input asp-for="Datum" class="form-control" id="datetimepicker" type="text" />
+        <label asp-for="@Model.Wedstrijd.Datum">@Html.DisplayNameFor(x => x.Wedstrijd.Datum)</label>
+        <input asp-for="@Model.Wedstrijd.Datum" class="form-control" id="datetimepicker" type="text" />
     </div>
     <br />
     <div class="form-group">
-        <label asp-for="TeamThuis.Naam">Thuisteam</label>
+        <label asp-for="@Model.Wedstrijd.TeamThuis.Naam">Thuisteam</label>
 
-        <select asp-for="TeamThuisID" asp-items="@thuis"></select>
+        <select asp-for="@Model.Wedstrijd.TeamThuisID" asp-items="@Model.Thuisteams"></select>
     </div>
     <br />
     <div class="form-group">
-        <label asp-for="ScoreThuis">Score thuis</label>
-        <input asp-for="ScoreThuis" class="form-control" type="number" />
+        <label asp-for="@Model.Wedstrijd.ScoreThuis">Score thuis</label>
+        <input asp-for="@Model.Wedstrijd.ScoreThuis" class="form-control" type="number" />
     </div>
     <br />
     <div class="form-group">
-        <label asp-for="TeamUit.Naam">Uitteam</label>
+        <label asp-for="@Model.Wedstrijd.TeamUit.Naam">Uitteam</label>
 
-        <select asp-for="TeamUitID" asp-items="@uit"></select>
+        <select asp-for="@Model.Wedstrijd.TeamUitID" asp-items="@Model.Uitteams"></select>
     </div>
     <br />
     <div class="form-group">
-        <label asp-for="ScoreUit">Score uit</label>
-        <input asp-for="ScoreUit" class="form-control" type="number" />
+        <label asp-for="@Model.Wedstrijd.ScoreUit">Score uit</label>
+        <input asp-for="@Model.Wedstrijd.ScoreUit" class="form-control" type="number" />
     </div>
     <input type="submit" value="VoegToe" />
 </form>
